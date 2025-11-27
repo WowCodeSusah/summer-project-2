@@ -15,6 +15,7 @@ const Navbar = () => {
     <div>
       <div className='navbar-main'>
         <ul>
+          <div>WEBNAME</div>
           <li onClick={toggleHamburger}>
             <Link to="/">Home</Link>
           </li>
@@ -28,8 +29,9 @@ const Navbar = () => {
             <Link to="/about">Setting</Link>
           </li>
         </ul>
-        <div className='hamburger-main' onClick={toggleHamburger}>
+        <div className='nav-title-section' onClick={toggleHamburger}>
             <Hamburger />
+            <div>WEBNAME</div>
         </div>
       </div>
 
@@ -87,8 +89,10 @@ const Navbar = () => {
               .navbar-main ul{
                   display: ${hamburgerOpen ? 'inline' : 'none'};
                   background-color: white;
+                  border-top-right-radius: 50px;
+                  border-bottom-right-radius: 50px;
                   height: 100vh;
-                  width: 50vw;
+                  width: 60vw;
                   position: absolute;
                   z-index: 20;
                   margin-block-start: 0;
