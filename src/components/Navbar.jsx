@@ -15,53 +15,100 @@ const Navbar = () => {
     <div>
       <div className='navbar-main'>
         <ul>
-          <li>
+          <li onClick={toggleHamburger}>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li onClick={toggleHamburger}>
             <Link to="/about">Calendar</Link>
           </li>
-          <li>
+          <li onClick={toggleHamburger}>
             <Link to="/about">Group</Link>
           </li>
-          <li>
+          <li onClick={toggleHamburger}>
             <Link to="/about">Setting</Link>
           </li>
         </ul>
-        <div className='hamburgerIcon' onClick={toggleHamburger}>
-            <Hamburger isOpen={hamburgerOpen}/>
+        <div className='hamburger-main' onClick={toggleHamburger}>
+            <Hamburger />
         </div>
       </div>
 
+      <div className='navbar-cover' onClick={toggleHamburger}></div>
+
       <style jsx>
         {`
+          .navbar-cover{
+              display: none;
+          }
+
           .navbar-main{
               width: 100%;
               height: 50px;
+              background-color: black;
+              padding-bottom: 10px;
           }
 
           .navbar-main ul{
               display: flex;
+              background-color: none;
               flex-wrap: wrap;
               float: right;
               margin: 20 0px;
-              padding: 0 20px;
+              padding: 0 25px;
           }
 
-          .navbar-main ul li{
+          .navbar-main ul li {
               list-style-type: none;
+          }
+
+          .navbar-main ul li a{
+              text-decoration: none;
+              color: white;
               padding-right: 10px;
           }
 
-          .hamburger{
+          .hamburger-main{
+              width: 2rem;
+              height: 2rem;
+              display: flex;
+              justify-content: space-around;
+              flex-flow: column nowrap;
               display: none;
           }
 
           @media (max-width: 767px) {
-              .hamburger{
-                  display: fixed;
+              .hamburger-main{
+                  display: flex;
                   padding-top: 10px;
                   margin-left: 10px;
+                  z-index: 10;
+              }
+
+              .navbar-main ul{
+                  display: ${hamburgerOpen ? 'inline' : 'none'};
+                  background-color: white;
+                  height: 100vh;
+                  width: 50vw;
+                  position: absolute;
+                  z-index: 20;
+                  margin-block-start: 0;
+              }
+
+              .navbar-main ul li a{
+                  text-decoration: none;
+                  color: black;
+                  padding-right: 10px;
+              }
+
+              .navbar-cover{
+                  display: ${hamburgerOpen ? 'inline' : 'none'};
+                  background-color: black;
+                  opacity: 0.5;
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100vw;
+                  height: 100vh;
                   z-index: 10;
               }
           }

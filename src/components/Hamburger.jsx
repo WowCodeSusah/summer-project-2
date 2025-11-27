@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hamburger = ({ isOpen }) => {
+const Hamburger = () => {
   return (
     <>
       <div className='hamburger-main'>
@@ -12,16 +12,30 @@ const Hamburger = ({ isOpen }) => {
       <style jsx>
         {`
             .hamburger-lines-1{
-                transform: ${ isOpen ? 'rotate(45deg)' : 'rotate(0)'};
+                width: 2rem;
+                height: 0.25rem;
+                border-radius: 10px;
+                background-color: white;
+                transform-origin: 1px;
+                transition: all 0.3s linear;
             }
 
             .hamburger-lines-2{
-                transform: ${ isOpen ? 'translateX(100%)' : 'translateX(0)'};
-                opacity: ${ isOpen ? 0 : 1}
+                width: 2rem;
+                height: 0.25rem;
+                border-radius: 10px;
+                background-color: white;
+                transform-origin: 1px;
+                transition: all 0.3s linear;
             }
 
             .hamburger-lines-3{
-                transform: ${ isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
+                width: 2rem;
+                height: 0.25rem;
+                border-radius: 10px;
+                background-color: white;
+                transform-origin: 1px;
+                transition: all 0.3s linear;
             }
         `}
       </style>
