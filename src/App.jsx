@@ -2,14 +2,20 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
-import Navbar from './components/Navbar'; // We will create this next
+import Navbar from './components/Navbar'; 
+import MainPage from './components/MainPage';
+import NavbarMain from './components/NavbarMain';
 
 function App() {
+  // change this with context later and add theme
+  const login = false
+
   return (
     <BrowserRouter>
-      <Navbar /> {/* The navigation bar will appear on all pages */}
+      { login ? <Navbar /> : <NavbarMain />}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<MainPage />} /> 
+        <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
